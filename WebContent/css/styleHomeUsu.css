@@ -1,0 +1,126 @@
+body{
+    background-color: rgb(211, 211, 230);
+}
+.boton_header button{
+    border: 1;
+    font-size: 16px;
+    width: 140px;
+    height: 22px;
+    margin-right: 10px;
+}
+.titulo h1{
+    font-size: 34;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    display: inline;
+}        
+
+#header {
+    margin:auto;
+    width:100%;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+    list-style:none;
+    display: inline;
+}
+
+.nav > li {
+    float:left;
+}
+
+.nav li a {
+    background-color:rgb(57, 59, 87);
+    color:#fff;
+    text-decoration:none;
+    padding:5px 10px;
+    display:block;
+    width: 140px;
+    text-align: center;
+}
+
+.nav li a:hover {
+    background-color:#bfbff0;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.boton_buscar, .contenedor_button button{
+    border: 1;
+    width: 100px;
+    height: 22px;
+    margin-right: 10px;
+}
+.contenedor_principal{
+    width:100%;
+    height:auto;
+    position: relative;
+    margin-top: 15px;
+    }
+    .contenedor_imagen{
+    width:20%;
+    height:100%;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    }
+    .imagen{
+    width:100%;
+    height:auto;
+    position:relative;
+    display:inline;
+    }
+    .imagen img {
+        width: 97%;
+        height: 100%;
+      
+      }
+    .contenedor_texto{
+        width:75%;
+        height:100%;
+        position:relative;
+        display:inline-block;
+        vertical-align:top;
+        }
+    .datos_servicio h3{
+        display: inline;
+        
+    }
+    .datos_servicio{
+        width: 100%;
+        height: 100%;
+    }
+.contenedor{
+    width: 950px;
+    height: 170px;
+    border:solid ;
+    border-color: rgb(57, 59, 87);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.boton_header button, .boton_buscar, .contenedor_button button{
+    background-color: rgb(57, 59, 87); /* Green */
+    color: rgb(239, 241, 245);
+  }
+
+.contenedor_button{
+    align-content: flex-end;
+    margin-top: 10px;
+}
+
+p{
+    display: inline;
+}

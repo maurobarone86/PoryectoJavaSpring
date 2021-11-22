@@ -1,0 +1,61 @@
+<meta charset="UTF-8"/>
+<html>
+    <head >
+        <title>Solicitud de reserva</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="css/static.css" rel="stylesheet">
+        <style type="text/css">
+            body { background-color: #20809d; 
+                    background-image: url("imagenes/unnamed (2).jpg") ;
+                    background-image: no-repeat;
+                    background-image: fixed;
+                    background-image: center;
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                    }
+                    label {    color: #070707;}
+                    .page-header2 h1 {  color: #000105; margin-top: 10px; margin-bottom: 20px;}
+        </style>
+         </head>
+    <body>
+        <header class="page-header2" align="center" >
+            <div align="right" class="contenedor_boton_cerrar"><button>Cerrar Sesión</button></div>
+            <h1>Servicio elegido: Parrila </h1>
+        </header>
+        <div class="contenedor_principal" align="center">
+            <div class="contenedor_formu" align="left">
+                <form class="formu">
+                    <div class="contenedor_pago">
+                        <label for="pago">Forma de Pago:</label>
+                        <select name="pago" id="pago">
+                            <option value="1">Los asistentes pagan la comida</option> 
+                            <option value="2">Los organizadores pagan la comida</option> 
+                        </select>
+                    </div>
+                    <div class="contenedor_email">
+                        <label for="email">Email:</label><input type="text">
+                    </div>
+                    <div class="contenedor_descri">
+                        <label for="descr">Descripcion del Evento</label>
+                        <textarea name="descripcion" id="descr" rows="8" cols="50"></textarea>
+                    </div>
+                    <div class="contenedor_telefono">
+                        <label for="telefono">Telefono:</label><input type="text">
+                    </div>
+                    <div class="contenedor_pago">
+                        <label for="pago">Evento:</label>
+                        <select name="pago" id="pago">
+                            <option value="1">Cumpleaños Carlos</option> 
+                            <option value="2">Fiesta del Trabajo</option> 
+                        </select>
+                    </div>
+                    <div class="contenedor_boton" align="right"><button type="submit">Solicitar Reserva</button></div>
+                </form>
+            </div>
+            <div class="con_button_atras" align="left"><button>Atras</button></div>
+        </div>
+    </body>
+</html>

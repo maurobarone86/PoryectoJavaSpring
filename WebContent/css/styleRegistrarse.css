@@ -1,0 +1,44 @@
+body{
+    background-image: url("fondoRegistrarse.jpg");
+}
+
+.formu label{
+font-size:20px;
+}
+
+.botonReg{
+    width: auto;
+    height: auto;
+
+}
+.botonReg button{
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+#BReg, #BCan{
+    background-color: rgb(57, 59, 87); /* Green */
+    color: rgb(239, 241, 245);
+    border: 1;
+    font-size: 16px;
+    width: 180px;
+    height: 36px;
+}
+.cuerpo{
+    width: 100%;
+    height: auto;
+    
+}
+.cuerpo_formu {
+    width:max-content;
+    height: auto;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
+    
+}
+#formu{
+    width:max-content;
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}

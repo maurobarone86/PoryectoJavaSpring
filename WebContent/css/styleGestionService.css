@@ -1,0 +1,81 @@
+
+.contenedor_principal{
+    width: 100%;
+    height: auto;
+}
+
+.contenedor_tabla_titulo_1, .contenedor_tabla_titulo_2{
+    width: 950px;
+    height: auto;
+    margin-top: 30px;
+}
+
+.tabla1, .tabla2, .tabla_evento{
+    width: 100%;
+    height: auto;
+}
+
+h3{
+    display: inline;
+}
+
+.contenedor_titulo{
+    margin-top: 20px;
+}
+
+.contenedor_boton_ges {
+    margin-top: 15px;
+}
+
+.contenedor_boton_ges a{
+    text-decoration: none;
+}
+body{
+    background-color: rgb(199, 250, 199);
+}
+
+button{
+    background-color: rgb(38, 68, 42);
+    color: cornsilk;
+    border: 1;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.contenedor_boton_cerrar button, .button_atras button{
+    width: 140px;
+    height: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.contenedor_tabla_evento{
+    width: 1000px;
+    height: auto;
+}
+
+.tabla_evento{
+    border-collapse: collapse;
+}
+
+.tabla_evento tr, .tabla_ser tr, .tabla_misServicios tr{
+    border-bottom:1px solid rgb(7, 29, 11);
+    height: 35px;
+    border-collapse: collapse;   
+}
+
+.contenedor_tabla_ser, .contenedor_tabla_misServicios{
+    width: 900px;
+    height: auto;
+}
+
+.tabla_ser, .tabla_misServicios{
+    border-collapse: collapse;
+    width: 100%;
+    height: auto;
+}

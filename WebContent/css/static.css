@@ -1,0 +1,219 @@
+body {
+    background-color: #309d20;
+    background-image: url("fotoefectos.com_ (2).jpg");
+     background-image: no-repeat;
+                    background-image: fixed;
+                    background-image: center;
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+}
+h1 a, h2 a, h3 a {
+    color: #05e7e0;
+    font-family: 'Lobster';
+    padding: 20px 20px 20px 40px;
+}
+label {
+    color: #030303;
+    font-size:22px;
+}    
+
+h2 {
+        color: #0c09db;}
+
+h3 p {
+    color: #02105e;
+    font-family: 'Lobster';
+    padding: 20px 20px 20px 40px;
+}
+.preloader a {
+    width: 70px;
+    height: 70px;
+    border: 10px solid #eee;
+    border-top: 10px solid rgb(235, 16, 16);
+    border-radius: 50%;
+    animation-name: girar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+h4 {
+    color: #0b2df0;}
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active, .page-header2 h1 {
+    color: #111311;
+    font-size: 36pt;
+    text-decoration: none;
+    display:inline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header h2 { display:inline; }
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    color: #c00707;
+}
+
+.save {
+    float: right;
+}
+
+.usuario-form textarea, .usuario-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #290d1c;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.usuario {
+    margin-bottom: 70px;
+}
+
+.usuario h2 a, .usuario h2 a:visited {
+    color: #e4c517;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.card form {
+    max-width: 100%;} /* Handles the responsive part, it will cause your form to scale with a max-width of 100% */
+
+.content_container{
+    width: 550px;
+    height: auto;
+    margin-top: 20px;
+    border: solid;
+    border-color: rgb(11, 63, 31);
+    background-color: #c0f5c3;
+}
+.contenido{
+    width: 100%;
+    height: auto;
+}
+
+.formu{
+    width: 400px;
+    height: auto;
+}
+
+.boton, .button_registrarse{
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: rgb(39, 138, 56); /* Green */
+    color: rgb(239, 241, 245);
+    border: 1;
+    font-size: 16px;
+    width: 180px;
+    height: 36px;
+    }
+
+.recuperarContra a{
+    font-size: 24;
+}
+
+.contenedor_formu{
+    width: 450px;
+    height: auto;
+    border: solid;
+    background-color: #cccdd1;
+}
+
+.contenedor_principal{
+    width: 100%;
+    height: auto;
+}
+
+.contenedor_boton{
+    width: 95%;
+    height: auto;
+}
+.contenedor_boton button,.contenedor_boton_cerrar button, .con_button_atras button{
+    background-color: #595a5f;
+}
+.contenedor_boton button, .contenedor_boton_cerrar button, .contenedor_boton_cerrar2 button, .button_atras button, .contenedor_button button, .con_button_atras button{
+    width: 140px;
+    height: 25px;
+    color: #eee;
+    border: 1;
+}
+
+.contenedor_button button, .contenedor_boton_cerrar2 button, .button_atras button{
+    background-color: #256830;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.button_atras, .con_button_atras{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.contenedor_boton_cerrar2{
+    margin-top: 20px;
+}
+.contenedor_boton_cerrar button{
+    margin-right: 25px;
+}
+.page-header{
+    margin-top: 20px;
+}
+
+.formu div{
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.contenedor_label_select{
+    margin-top: 15px;
+}
+.contenedor_pago, .contenedor_nombreEvento{
+    margin-top: 20px;
+}
+.contenedor_formu2{
+    width: 600px;
+    height: auto;
+    border: solid;
+    background-color:#b0e4b3 ;
+    border-color: #07350a;
+}
+
+.formu2 div{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.page-header h1{
+    display: inline;
+}
+.contenedor_descri label{
+    margin-bottom: 10px;
+}
+
+.formu{
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,55 @@
+
+<html>
+    <head >
+        <title>Carga de Servicio</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="css/static.css" rel="stylesheet">
+         </head>
+    <body>
+        <div class="page-header2" align="center" >
+            <div align="right" class="contenedor_boton_cerrar2"><button>Cerrar Sesión</button></div>
+            <h1>Publicación de un nuevo Servicio</h1>  
+        </div>
+        <div class="contenedor_principal" align="center">
+            <div class="contenedor_formu2">
+                <form align="left" class="formu2">
+                    <div class="contenedor_nombre">
+                        <label for="nombreServicio">Nombre del Servicio:</label><input type="text"></div>
+                    <div class="contenedor_urlweb">
+                        <label for="url">Url de la Web:</label><input type="text"></div>
+                    <div class="contenedor_whatsapp">
+                        <label for="whastapp">WhatsApp:</label><input type="text"></div>
+                    <div class="contenedor_instagram">
+                        <label for="instagram">Instagram:</label><input type="text"></div>
+                    <div class="contenedor_twiter">
+                        <label for="twiter">Twiter:</label><input type="text"></div>
+                    <div class="cotenendor_tipo_servicio">
+                        <label for="tipo">Tipo de Servicio:</label>
+                        <select name="tipo" id="tipo">
+                            <optgroup label="Show en Vivo">
+                            <option value="1">Banda de Musica</option>
+                            <option value="2">Dj</option>
+                            <option value="3">Stand Up</option>
+                            <option value="4">Animadores</option>
+                            </optgroup>
+                            <option value="5">Show en Vivo</option> 
+                            <option value="6">Food truck</option> 
+                            <option value="7">Catering</option>
+                            <option value="8">Wedding planner</option>
+                            <option value="9">Filmacion y Fotos</option>
+                        </select></div>
+                    <div class="contenendor_descripcion2">
+                        <label for="descr">Descripción:</label><br>
+                        <textarea name="descripcion" id="descr" rows="6" cols="60"></textarea></div>
+                    <div class="contenedor_archivo">
+                        <label for="archivo">Ingresar imagenes (.jpg, .png):</label>
+                        <input type="file" id="archivo" name="archivosubido"></div>
+                    <div class="contenedor_button" align="right"><button type="submit">Publicar Servicio</button></div>
+                </form>
+            </div>
+            <div class="button_atras" align="left"><button>Atras</button></div>
+        </div>
+    </body>
+</html>

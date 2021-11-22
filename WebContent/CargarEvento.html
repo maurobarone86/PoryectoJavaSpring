@@ -1,0 +1,64 @@
+<meta charset="UTF-8"/>
+<html>
+    <head >
+        <title>Cargar Evento</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="css/static.css" rel="stylesheet">
+        <style>
+            body{
+                background-image: url("imagenes/unnamed (2).jpg") ;
+            }
+        </style>
+         </head>
+    <body>
+        <header class="page-header2" align="center" >
+            <div align="right" class="contenedor_boton_cerrar"><button>Cerrar Sesión</button></div>
+            <h1 >Cargar un Nuevo Evento</h1>
+        </header>
+        <div class="contenedor_principal" align="center">
+            <div class="contenedor_formu" align="left">
+                <form class="formu">
+                    <div class="contenedor_nombreEvento">
+                        <label for="nombreEvento">Nombre del Evento:</label><input type="text">
+                    </div>
+                    <div class="contenedor_direccion">
+                        <label for="nombreEvento">Direccion:</label> <input type="text">
+                    </div>
+                    <div class="contenedor_codigo_postal">
+                        <label for="nombreEvento">Codigo Postal:</label><input type="text">
+                    </div>
+                    <div class="contenedor_provincia">
+                        <label for="nombreEvento">Provincia:</label><input type="text">
+                    </div>
+                    <div class="contenedor_geoloca">
+                        <label for="nombreEvento">Geolocalizacion:</label><input type="text">
+                    </div>
+                    <div class="contenedor_eventos">
+                        <label for="evento">Tipo de Evento:</label>
+                        <select name="evento" id="evento">
+                            <option value="1">Evento Público Cultural</option> 
+                            <option value="2">Evento Público Politico</option> 
+                            <option value="3">Evento Público Social</option>
+                            <option value="4">Evento Público Deportivo</option> 
+                            <option value="5">Evento Privado Cumpleaños</option> 
+                            <option value="6">Evento Privado Boda</option>
+                            <option value="7">Evento Privado Aniversario</option> 
+                            <option value="8">Evento Privado Corportivo</option> 
+                        </select>
+                    </div>
+                    <div class="contenedor_fecha">
+                        <label for="start">Fecha: </label>
+                        <input type="date" id="start" name="trip-start" value="2021-09-01" min="2021-01-01" max="2021-12-31">
+                    </div>
+                    <div class="contenedor_hora">
+                        <label for="hora">Hora: </label>
+                        <input type="time" id="hora" name="hora" min="8:00" max="21:00" step="3600" />
+                    </div>
+                    <div class="contenedor_boton" align="right"><button type="submit">Cargar Evento</button></div>
+                </form>
+            </div>
+            <div class="con_button_atras" align="left"  ><button>Atras</button></div>
+        </div>
+    </body>
+</html>

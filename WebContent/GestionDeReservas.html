@@ -1,0 +1,173 @@
+
+<html>
+    <head >
+        <title>Gestion de Reservas</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="css/styleGestionService.css" rel="stylesheet">
+        <style>
+            table, tr, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                
+            }
+            td > button{
+                width: 100%;
+                height: auto;  
+            }
+        </style>
+         </head>
+    <body>
+        <header class="contenedor_titulo">
+            <div align="right" class="contenedor_boton_cerrar"><button>Cerrar Sesión</button></div>
+            <div class="titulo" align="center"><h1>Gestion de Reservas</h1></div>
+        </header>
+        <div class="contenedor_principal" align="center">
+            <div class="contenedor_tabla_titulo_1">
+                <div class="contenedor_tabla">
+                    <table class="tabla1">
+                        <tbody>
+                            <tr align="center"><td colspan="9"><h3>Reservas Solicitadas</h3></td></tr>
+                            <tr align="center">
+                                <td><div><p>Tipo de evento</p></div></td>
+                                <td>Solicitante</td>
+                                <td>Fecha</td>
+                                <td>Hora</td>
+                                <td>Localidad</td>
+                                <td>Estado</td>
+                                <td colspan="3">Opciones</td>
+                            </tr>
+                            <tr>
+                                <td><div class="prueba"><p>Cumpleaños</p></div></td>
+                                <td>Jose Rodriguez</td>
+                                <td>23 de Nom 2021</td>
+                                <td>14:30 </td>
+                                <td>La Plata</td>
+                                <td>Sin realizar</td>
+                                <td align="center"><button>Aceptar</button></td>
+                                <td align="center"><button>Rechazar</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Boda</td>
+                                <td>Facundo Rodriguez</td>
+                                <td>3 de Nom 2021</td>
+                                <td>14:30 </td>
+                                <td>La Plata</td>
+                                <td>Aceptada</td>
+                                <td align="center"><button disabled>Aceptar</button></td>
+                                <td align="center"><button disabled>Rechazar</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Boda</td>
+                                <td>Daniel Lopez</td>
+                                <td>20 de Nom 2021</td>
+                                <td>17:30 </td>
+                                <td>La Plata</td>
+                                <td>Rechazada</td>
+                                <td align="center"><button disabled>Aceptar</button></td>
+                                <td align="center"><button disabled>Rechazar</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Show en vivo</td>
+                                <td>Ignacio Sanchez</td>
+                                <td>20 de Nom 2021</td>
+                                <td>23:30 </td>
+                                <td>La Plata</td>
+                                <td>Aceptada</td>
+                                <td align="center"><button disabled>Aceptar</button></td>
+                                <td align="center"><button disabled>Rechazar</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Deportivo</td>
+                                <td>Daniel Rocha</td>
+                                <td>20 de Nom 2021</td>
+                                <td>11:30 </td>
+                                <td>La Plata</td>
+                                <td>Aceptada</td>
+                                <td align="center"><button disabled>Aceptar</button></td>
+                                <td align="center"><button disabled>Rechazar</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div align="center" class="contenedor_boton_ges"><a href="">Anterior</a> <a href="">Siguiente</a></div>
+            </div>
+            <div class="contenedor_tabla_titulo_2">
+                <div class="contenedor_tabla2">
+                    <table class="tabla2">
+                        <tbody>
+                            <tr align="center" ><td colspan="8"><h3>Reservas Realizadas</h3></td></tr>
+                            <tr align="center">
+                                <td>Tipo de evento</td>
+                                <td>Solicitante</td>
+                                <td>Fecha</td>
+                                <td>Hora</td>
+                                <td>Localidad</td>
+                                <td>Estado</td>
+                                <td colspan="2">Opciones</td>
+                            </tr>
+                            <tr>
+                                <td>Cultural</td>
+                                <td>Martin Lopez</td>
+                                <td>4 de dim 2021</td>
+                                <td>13:30</td>
+                                <td>La Plata</td>
+                                <td>Aceptada</td>
+                                <td align="center"><button>Realizado</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Politico</td>
+                                <td>Sol Perez</td>
+                                <td>5 de dim 2021</td>
+                                <td>13:30</td>
+                                <td>La Plata</td>
+                                <td>Rechazada</td>
+                                <td align="center"><button disabled>Realizado</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Deportivo</td>
+                                <td>Soledad Roguiguez</td>
+                                <td>5 de dim 2021</td>
+                                <td>13:30</td>
+                                <td>La Plata</td>
+                                <td>Aceptada</td>
+                                <td align="center"><button>Realizado</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Cultural</td>
+                                <td>Dora Lopez</td>
+                                <td>3 de dim 2021</td>
+                                <td>14:30</td>
+                                <td>La Plata</td>
+                                <td>Rechazada</td>
+                                <td align="center"><button disabled>Realizado</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>Corporativo</td>
+                                <td>Pablo Bernal</td>
+                                <td>12 de dim 2021</td>
+                                <td>14:30</td>
+                                <td>La Plata</td>
+                                <td>Aceptada</td>
+                                <td align="center"><button>Realizado</button></td>
+                                <td align="center"><button>Detalles</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div align="center" class="contenedor_boton_ges"><a href="" type="">Anterior</a> <a href="">Siguiente</a></div>
+            </div>  
+            <div class="button_atras" align="left"><button>Atras</button></div>      
+        </div>
+    </body>
+</html>

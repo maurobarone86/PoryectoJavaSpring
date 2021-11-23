@@ -58,4 +58,7 @@ public class UsuarioService {
 		return getUsuarioDAOImpl().recuperar(id);
 		
 	}
+	public Usuario loginUser(Usuario user) {
+		return getUsuarioRepository().findByNameByPass(user.getNombreUsuario(), user.getPassword());
+	}
 }

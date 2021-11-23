@@ -32,6 +32,16 @@ public class EventoController {
 		}
 		return new ResponseEntity<List<Evento>>(HttpStatus.NO_CONTENT);
 	}
+	
+	@GetMapping("/eventos/listaActivos")
+	public ResponseEntity<List<Evento>> obtenerListaActivos(){
+		List<Evento> lista= eventoService.recuperarActivos();
+		if (lista!=null) {
+			return new ResponseEntity<List<Evento>>(lista, HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Evento>>(HttpStatus.NO_CONTENT);
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Evento> obtener(@PathVariable("id") Long id){
 		Evento evento= eventoService.findById(id);

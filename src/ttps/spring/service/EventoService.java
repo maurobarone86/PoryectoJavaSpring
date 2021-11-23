@@ -53,6 +53,10 @@ public class EventoService {
 		return getEventoRepository().findAll();
 	}
 	
+	public List<Evento> recuperarActivos(){
+		return getEventoRepository().findByActivo();
+	}
+	
 	public Evento guardar(Evento evento) {
 		if (evento.getNombre()!=null) {
 			return getEventoRepository().save(evento);

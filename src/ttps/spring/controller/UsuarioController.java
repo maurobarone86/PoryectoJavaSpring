@@ -53,6 +53,15 @@ public class UsuarioController {
 		return new ResponseEntity<List<Servicio>>(usuario.getServicios(), HttpStatus.OK);
 	}
 	
+	@PostMapping("/usuario/altaServicio/{id}")
+	public ResponseEntity<List<Servicio>> altaServicio(@PathVariable("id") Long id, @RequestBody Servicio nuevo) {
+		Usuario user = usuarioService.altaServicio(id, nuevo);
+		if(user == null){
+			return new	ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
+			}
+		return new ResponseEntity<List<Servicio>>(user.getServicios(), HttpStatus.OK);
+	}
+	
 	@PostMapping("/usuario/login")
 	public ResponseEntity<Usuario> login(@RequestBody Usuario user ) {
 		Usuario usuario = usuarioService.loginUser(user);

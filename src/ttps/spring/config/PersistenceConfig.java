@@ -6,8 +6,10 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -19,13 +21,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = { "ttps.spring" })
+@EnableJpaRepositories(basePackages = { "ttps.spring" }, transactionManagerRef="transactionManager")
 public class PersistenceConfig {
 
-	private static final String MODEL_PACKAGE = "ttps.spring.model";
+	private static final String MODEL_PACKAGE = "ttps.spring";
 	
 	
-	@Bean 
+	@Bean
+	@Scope(scopeName = ConfigurableBeanFactory.SCOPE_SINGLETON)
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource());
@@ -52,11 +55,29 @@ public class PersistenceConfig {
 		jpaTransactionManager.setEntityManagerFactory(emf);
 		return jpaTransactionManager;
 	}
+	@Bean
+	public PlatformTransactionManager transactionManager(){
+		JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
+		jpaTransactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+		return jpaTransactionManager;
+	}
+	
+	
+	
+	/*
+	 @Bean
+	   public PlatformTransactionManager transactionManager(){
+	      JpaTransactionManager transactionManager
+	        = new JpaTransactionManager();
+	      transactionManager.setEntityManagerFactory(
+	        entityManagerFactory().getObject() );
+	      return transactionManager;
+	   }*/
 	
 	
 	private Properties additionalProperties() {
 		Properties properties = new Properties();		
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 		properties.setProperty("hibernate.default_schema", "javaTTPS");
 		return properties;

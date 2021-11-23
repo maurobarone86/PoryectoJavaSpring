@@ -18,8 +18,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
+//import org.hibernate.annotations.LazyCollection;
+//import org.hibernate.annotations.LazyCollectionOption;
 import org.joda.time.LocalTime;
 @Entity
 @Table(name="eventos")

@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Hibernate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.context.ApplicationContext;
 //import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
-import ttps.spring.model.dao.EstadoDAO;
+//import ttps.spring.model.dao.EstadoDAO;
 import ttps.spring.model.dao.EventoDAO;
-import ttps.spring.model.dao.EventoDAOImpl;
+//import ttps.spring.model.dao.EventoDAOImpl;
 import ttps.spring.model.dao.ServicioDAO;
-import ttps.spring.model.dao.ServicioDAOImpl;
+//import ttps.spring.model.dao.ServicioDAOImpl;
 import ttps.spring.model.dao.UsuarioDAO;
-import ttps.spring.model.dao.UsuarioDAOImpl;
-import ttps.spring.model.dao.UsuarioRepository;
+//import ttps.spring.model.dao.UsuarioDAOImpl;
 import ttps.spring.model.model.Evento;
 import ttps.spring.model.model.Servicio;
 import ttps.spring.model.model.Usuario;
+import ttps.spring.model.repository.UsuarioRepository;
 
 //@Component
 public class MainTestDao {

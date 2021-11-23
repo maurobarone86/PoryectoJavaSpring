@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ttps.spring.model.dao.EstadoRepository;
+import ttps.spring.model.repository.EstadoRepository;
 
 
 @Service

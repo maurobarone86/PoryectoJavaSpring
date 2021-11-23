@@ -1,4 +1,4 @@
-package ttps.spring.model.dao;
+package ttps.spring.model.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

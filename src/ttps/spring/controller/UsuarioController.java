@@ -44,9 +44,9 @@ public class UsuarioController {
 	public ResponseEntity<String> getUsuario(@PathVariable("usuarioId") Long usuarioId){
         Usuario usuario;
         //metodo de jpa Repository
-		usuario = usuarioService.findById(usuarioId);
+		//usuario = usuarioService.findById(usuarioId);
         //metodo de UsuarioDAO
-		//usuario = usuarioService.buscarPorId(usuarioId);
+		usuario = usuarioService.buscarPorId(usuarioId);
 		System.out.println(usuario);
         
         if(usuario == null) {

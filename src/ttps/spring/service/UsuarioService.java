@@ -1,5 +1,6 @@
 package ttps.spring.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,4 +72,24 @@ public class UsuarioService {
 		}
 		return user;
 	}
+	public Boolean existeUsuario(Long id) {
+		return getUsuarioRepository().existsById(id);
+	}
+	public Boolean nombreUsuarioLibre(String nuevoNombreUsuario) {
+		Boolean resultado=false;
+		try {
+			List<Usuario> listaUsuarios = getUsuarioRepository().findByNombreUsuario(nuevoNombreUsuario);
+			if (listaUsuarios.isEmpty()) {
+				resultado=true; 
+				}
+		}
+		catch(Exception e){
+			System.out.println("la lista de usuarios devolvio algo inesperado");
+			
+		}
+		
+		return resultado;
+		
+	}
+	
 }

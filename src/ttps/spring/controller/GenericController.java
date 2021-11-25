@@ -22,9 +22,23 @@ abstract public class GenericController<T> {
 	        	}
 	    }
 	    else {
-	    	return new ResponseEntity<String> ( HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
+	    	return new ResponseEntity<String> ( HttpStatus.NO_CONTENT);
 	    	}
 	}
+	public  ResponseEntity<String> setActivoEntity(Long Id, Boolean cambio){
+		 if (existe(Id)) {
+	    	T entity = buscar(Id);
+	    	setActivo(entity,cambio);
+	       	return new ResponseEntity<String>(HttpStatus.OK);
+	        	}
+	    else {
+	    	return new ResponseEntity<String> ( HttpStatus.NO_CONTENT);
+	    	}
+	}
+	
+		
+	abstract public void setActivo(T entity, Boolean cambio);
+		
 	protected abstract T buscar(Long id);
 
 	abstract public Boolean existe(Long id);

@@ -25,55 +25,84 @@ public class ServicioController {
 	
 	@GetMapping("/servicio/{id}")
 	public ResponseEntity<Servicio> servicio(@PathVariable("id") Long id){
+		try {
 		Servicio servicio= servicioService.findById(id);
-		if (servicio!=null) {
-			return new ResponseEntity<Servicio> (servicio,HttpStatus.OK );
+		return new ResponseEntity<Servicio> (servicio,HttpStatus.OK );
 		}
-		return new ResponseEntity<Servicio> (HttpStatus.NO_CONTENT);
+		catch(Exception e) {
+			return new ResponseEntity<Servicio> (HttpStatus.NO_CONTENT);
+		}
 	}
 	
 	@GetMapping("/serviciosActivos")
 	public ResponseEntity<List<Servicio>> servicioListaActivo(){
+		try {
 		List<Servicio> lista= servicioService.obtenerLista();
 		if (lista!=null) {
-			return new ResponseEntity<List<Servicio>> (lista,HttpStatus.OK );
+		return new ResponseEntity<List<Servicio>> (lista,HttpStatus.OK );
 		}
-		return new ResponseEntity<List<Servicio>> (HttpStatus.NO_CONTENT);
+		else {return new ResponseEntity<List<Servicio>> (HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
+			}
+		}
+		catch(Exception e) {
+			return new ResponseEntity<List<Servicio>> (HttpStatus.NO_CONTENT);
+		}
 	}
 	
 	@PostMapping("/nuevo")
 	public ResponseEntity<Servicio> guardar(@RequestBody Servicio servicio){
+		try {
 		Servicio servicioA= servicioService.agregar(servicio);
 		if (servicioA!=null) {
 			return new ResponseEntity<Servicio> (servicioA, HttpStatus.OK);
 		}
+		else {
 		return new ResponseEntity<Servicio>(HttpStatus.NO_CONTENT);
+		}
+		}
+		catch(Exception e) {
+			return new ResponseEntity<Servicio>(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
+		}
 	}
 	
 	@PutMapping("/servicio/{id}")
 	public ResponseEntity<Servicio> servicioPut(@PathVariable("id") Long id, @RequestBody Servicio nuevo){
+		try {
 		Servicio servicio= servicioService.actualizar(id, nuevo);
-		if (servicio!=null) {
-			return new ResponseEntity<Servicio> (servicio, HttpStatus.OK);
+		return new ResponseEntity<Servicio> (servicio, HttpStatus.OK);
 		}
-		return new ResponseEntity<Servicio>(HttpStatus.NO_CONTENT);
+		catch(Exception e) {
+			return new ResponseEntity<Servicio>(HttpStatus.NO_CONTENT);
+		}
+				
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Boolean> delete(@PathVariable("id") Long id){
+	public ResponseEntity<Servicio> delete(@PathVariable("id") Long id){
+		try {
 		Boolean data = servicioService.delete(id);
 		if (data) {
-			return new ResponseEntity<Boolean> (true, HttpStatus.OK);
+			return new ResponseEntity<Servicio> (HttpStatus.OK);
 		}
-		return new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT);
+		else {
+		return new ResponseEntity<Servicio>(HttpStatus.NO_CONTENT);
+		}
+		}
+		catch (Exception e) {
+			return new ResponseEntity<Servicio>(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
+		}
 	}
 	
 	@DeleteMapping("/deleteLogico/{id}")
 	public ResponseEntity<Servicio> deleteLogico(@PathVariable("id") Long id){
+		try {
 		Servicio servicio= servicioService.borradoLogico(id);
-		if (servicio!=null) {
-			return new ResponseEntity<Servicio> (servicio, HttpStatus.OK);
+		return new ResponseEntity<Servicio> (servicio, HttpStatus.OK);
 		}
-		return new ResponseEntity<Servicio>(HttpStatus.NO_CONTENT);
+		catch (Exception e) {
+			return new ResponseEntity<Servicio>(HttpStatus.NO_CONTENT);
+		}
+		
+		
 	}
 }

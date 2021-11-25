@@ -96,7 +96,7 @@ public class MainTestDao {
 			Date cumple = Date.valueOf("1986-05-29");
 			usuario.setNombreUsuario("maurobarone1");
 			usuario.setFechaNac(cumple);
-			
+			usuario.setPassword("123456");		
 			
 			Evento evento1 = new Evento();
 			Evento evento2 = new Evento();
@@ -190,9 +190,11 @@ public class MainTestDao {
 			
 			//Se persisten mas usuarios
 			Usuario usuario1=new Usuario("Pedro", "Rodriguez", Date.valueOf("1986-05-29"), "PedroRodriguez");
+			usuario1.setPassword("123456");
 			usuario1= usuarioDAOImpl.actualizar(usuario1);
 			System.out.println("Guardado de usuario correcto");
 			Usuario usuario2=new Usuario("Juan", "Cruz", Date.valueOf("1991-05-12"), "JuanCruz");
+			usuario2.setPassword("123456");
 			usuario2= usuarioDAOImpl.actualizar(usuario2);
 			System.out.println("Guardado de usuario correcto");
 			

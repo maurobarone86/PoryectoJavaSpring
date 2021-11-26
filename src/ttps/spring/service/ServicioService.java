@@ -45,9 +45,13 @@ public class ServicioService {
 	public Servicio actualizar(Long id, Servicio nuevo) {
 		Servicio servicio= findById(id);
 		if (servicio != null) {
-			//falta agregar los otros campos
 			servicio.setActivo(nuevo.getActivo());
 			servicio.setNombre(nuevo.getNombre());
+			servicio.setDescripcion(nuevo.getDescripcion());
+			servicio.setInstagram(nuevo.getInstagram());
+			servicio.setTwiter(nuevo.getTwiter());
+			servicio.setUrl(nuevo.getUrl());
+			servicio.setWhatsapp(nuevo.getWhatsapp());
 			return agregar(servicio);
 		}
 		return null;

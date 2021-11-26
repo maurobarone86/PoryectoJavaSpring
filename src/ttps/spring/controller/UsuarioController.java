@@ -33,11 +33,9 @@ public class UsuarioController extends GenericController<Usuario> {
 	
 	@PostMapping("/usuario")
 	public ResponseEntity<String> guardar(@RequestBody Usuario usuario) {
-		if (usuarioService.nombreUsuarioLibre(usuario.getNombreUsuario())) {
-			Usuario user=this.usuarioService.guardar(usuario);
-			if (user!= null) {
-				return new ResponseEntity<String>(HttpStatus.OK);
-			}
+		Usuario user=this.usuarioService.guardar(usuario);
+		if (user!= null) {
+			return new ResponseEntity<String>(HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 	}
@@ -87,7 +85,11 @@ public class UsuarioController extends GenericController<Usuario> {
 	public ResponseEntity<Usuario> login(@RequestBody Usuario user ) {
 		try {
 		Usuario usuario = usuarioService.loginUser(user);
-		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+			if (usuario!=null) {
+				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+			}else {
+				return new ResponseEntity<Usuario>(HttpStatus.NON_AUTHORITATIVE_INFORMATION);
+			}
 		}
 		catch (Exception e) {
 			return new	ResponseEntity<Usuario>(HttpStatus.NO_CONTENT);

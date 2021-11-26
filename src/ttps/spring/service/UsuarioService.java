@@ -47,7 +47,7 @@ public class UsuarioService {
 	}
 
 	public Usuario guardar(Usuario usuario) {
-		if (usuario != null) {
+		if (nombreUsuarioLibre(usuario.getNombreUsuario())) {
 			try {
 				return getUsuarioRepository().save(usuario);	
 			}

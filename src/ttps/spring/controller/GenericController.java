@@ -8,31 +8,22 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 abstract public class GenericController<T> {
 	protected Class<T> controllerClass;
 
-	public  ResponseEntity<String> getEntity(Long Id){
+	public  ResponseEntity<T> getEntity(Long Id){
 		 if (existe(Id)) {
 	    	T entity = buscar(Id);
-	    	ObjectMapper mapper = new ObjectMapper();
-	        String jsonInString= null;
-	        try {
-	        	jsonInString = mapper.writeValueAsString(entity);
-	        	return new ResponseEntity<String>(jsonInString,HttpStatus.OK);
-	        	}
-	        catch (Exception e) {
-	        	return new ResponseEntity<String> (HttpStatus.INTERNAL_SERVER_ERROR);
-	        	}
+	        return new ResponseEntity<T>(entity,HttpStatus.OK);
+	    }else {
+	    	return new ResponseEntity<T> ( HttpStatus.NO_CONTENT);
 	    }
-	    else {
-	    	return new ResponseEntity<String> ( HttpStatus.NO_CONTENT);
-	    	}
 	}
-	public  ResponseEntity<String> setActivoEntity(Long Id, Boolean cambio){
+	public  ResponseEntity<T> setActivoEntity(Long Id, Boolean cambio){
 		 if (existe(Id)) {
 	    	T entity = buscar(Id);
 	    	setActivo(entity,cambio);
-	       	return new ResponseEntity<String>(HttpStatus.OK);
+	       	return new ResponseEntity<T>(entity,HttpStatus.OK);
 	        	}
 	    else {
-	    	return new ResponseEntity<String> ( HttpStatus.NO_CONTENT);
+	    	return new ResponseEntity<T> ( HttpStatus.NO_CONTENT);
 	    	}
 	}
 	

@@ -34,19 +34,12 @@ public class UsuarioController extends GenericController<Usuario> {
 	@PostMapping("/usuario")
 	public ResponseEntity<String> guardar(@RequestBody Usuario usuario) {
 		if (usuarioService.nombreUsuarioLibre(usuario.getNombreUsuario())) {
-			try {
-				this.usuarioService.guardar(usuario);
+			Usuario user=this.usuarioService.guardar(usuario);
+			if (user!= null) {
+				return new ResponseEntity<String>(HttpStatus.OK);
 			}
-			catch(Exception e) {
-				System.out.println("Ocurrio un error cuando se intentaba guardar el usuario");
-			}
-			
-			return new ResponseEntity<String>(HttpStatus.OK);
 		}
-		else {
-			return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
-		}
-		
+		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 	}
 	//prueba curl -v http://localhost:8080/proyectoJavaSpring/api/usuarios
 	@GetMapping("/usuarios")
@@ -71,23 +64,21 @@ public class UsuarioController extends GenericController<Usuario> {
 			Usuario usuario = usuarioService.findById(id);
 			if (usuario.getServicios()==null || usuario.getServicios().isEmpty()) {
 				return new	ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
-				}
-			else	{
+			}else{
 				return new ResponseEntity<List<Servicio>>(usuario.getServicios(), HttpStatus.OK);
-				}
 			}
-			else	{
-				return new	ResponseEntity<List<Servicio>>(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
-			}
+		}else{
+			return new	ResponseEntity<List<Servicio>>(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
+		}
 	}
+			
 	
 	@PostMapping("/usuario/altaServicio/{id}")
 	public ResponseEntity<List<Servicio>> altaServicio(@PathVariable("id") Long id, @RequestBody Servicio nuevo) {
-		try {
 		Usuario user = usuarioService.altaServicio(id, nuevo);
-		return new ResponseEntity<List<Servicio>>(user.getServicios(), HttpStatus.OK);
-			}
-		catch (Exception e) {
+		if (user!=null) {
+			return new ResponseEntity<List<Servicio>>(user.getServicios(), HttpStatus.OK);
+		}else {
 			return new	ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
 		}
 	}
@@ -105,34 +96,28 @@ public class UsuarioController extends GenericController<Usuario> {
 	
 	@PutMapping("/usuario/{id}")
 	public ResponseEntity<Usuario> actualizar(@PathVariable("id") Long id ,@RequestBody Usuario userNuevo){
-		try {
-			Usuario user= usuarioService.findById(id);
-			if (userNuevo.getApellido() != null) {user.setApellido(userNuevo.getApellido());}
-			if (userNuevo.getDireccion() !=null) {user.setDireccion(userNuevo.getDireccion());}
-			if (userNuevo.getNombre() !=null) {user.setNombre(userNuevo.getNombre());}
-			if (user.getNombreUsuario() !=null) {user.setNombreUsuario(userNuevo.getNombreUsuario());}
-			if (userNuevo.getPassword() !=null) {user.setPassword(userNuevo.getPassword());}
-			user = usuarioService.guardar(user);
+		Usuario user= usuarioService.actualizar(userNuevo, id);
+		if (user != null) {
 			return new ResponseEntity<Usuario> (user, HttpStatus.OK);
 		}
-		catch(Exception e) {
+		else {
 			return new ResponseEntity<Usuario> (HttpStatus.NO_CONTENT);
 		}
 	}
 	
 	//prueba curl -v http://localhost:8080/proyectoJavaSpring/api/usuario/10
 	@GetMapping("/usuario/{id}")
-	public ResponseEntity<String> getUsuario(@PathVariable("id") Long id){
+	public ResponseEntity<Usuario> getUsuario(@PathVariable("id") Long id){
 		return getEntity(id);
 	}
 	
 	@DeleteMapping("/usuario/{id}")
-	public ResponseEntity<String> deleteLogicoUsuario(@PathVariable("id") Long id){
+	public ResponseEntity<Usuario> deleteLogicoUsuario(@PathVariable("id") Long id){
 		return setActivoEntity(id,false);
 	}
 	
 	@PutMapping("/usuario/activado/{id}")
-	public ResponseEntity<String> activadoLogicoUsuario(@PathVariable("id") Long id){
+	public ResponseEntity<Usuario> activadoLogicoUsuario(@PathVariable("id") Long id){
 		return setActivoEntity(id,true);
 	}
 	

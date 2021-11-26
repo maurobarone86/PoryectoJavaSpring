@@ -1,9 +1,12 @@
 package ttps.spring.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,33 +47,45 @@ public class UsuarioService {
 	}
 
 	public Usuario guardar(Usuario usuario) {
-		
 		if (usuario != null) {
-			return getUsuarioRepository().save(usuario);
-			
+			try {
+				return getUsuarioRepository().save(usuario);	
+			}
+			catch(Exception e) {
+				System.out.println("Ocurrio un error cuando se intentaba guardar el usuario");
+			}
 		}
 		return null;
 	}
+	
 	public Usuario findById(Long id) {
-		Optional<Usuario> optionalEntity = getUsuarioRepository().findById(id);
-		Usuario usuario = optionalEntity.get();
-		return usuario;
+		if (existeUsuario(id)) {
+			Optional<Usuario> optionalEntity = getUsuarioRepository().findById(id);
+			Usuario usuario = optionalEntity.get();
+			return usuario;
+		}else{
+			return null;
+		}
+		
 	}
 	public Usuario buscarPorId(Long id) {
 		return getUsuarioDAOImpl().recuperar(id);
-		
 	}
+	
 	public Usuario loginUser(Usuario user) {
 		return getUsuarioRepository().findByNameByPass(user.getNombreUsuario(), user.getPassword());
 	}
 	
 	public Usuario altaServicio(Long id, Servicio nuevo) {
-		Usuario user= findById(id);
-		if (user != null) {
-			user.getServicios().add(nuevo);
-			user=guardar(user);
+		if (existeUsuario(id)) {
+			Usuario user= findById(id);
+			if (user != null) {
+				user.getServicios().add(nuevo);
+				user=guardar(user);
+				return user;
+			}
 		}
-		return user;
+		return null;
 	}
 	public Boolean existeUsuario(Long id) {
 		return getUsuarioRepository().existsById(id);
@@ -84,12 +99,26 @@ public class UsuarioService {
 				}
 		}
 		catch(Exception e){
-			System.out.println("la lista de usuarios devolvio algo inesperado");
-			
+			System.out.println("la lista de usuarios devolvio algo inesperado");	
 		}
-		
 		return resultado;
 		
 	}
 	
+	public Usuario actualizar(Usuario userNuevo, Long id) {
+		try {
+			Usuario user= findById(id);
+			if (user!= null) {
+				if (userNuevo.getApellido() != null) {user.setApellido(userNuevo.getApellido());}
+				if (userNuevo.getDireccion() !=null) {user.setDireccion(userNuevo.getDireccion());}
+				if (userNuevo.getNombre() !=null) {user.setNombre(userNuevo.getNombre());}
+				if (userNuevo.getNombreUsuario() !=null) {user.setNombreUsuario(userNuevo.getNombreUsuario());}
+				if (userNuevo.getPassword() !=null) {user.setPassword(userNuevo.getPassword());}
+				user =guardar(user);
+				return user;
+			}
+		}
+		catch(Exception e) {}
+		return null;
+	}
 }

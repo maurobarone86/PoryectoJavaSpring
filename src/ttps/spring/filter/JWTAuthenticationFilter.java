@@ -32,6 +32,7 @@ public class JWTAuthenticationFilter implements Filter {
 
         // El login del usuarios es publico y los servicios
         if ("/proyectoJavaSpring/auth".equals(req.getRequestURI()) || "/proyectoJavaSpring/apiServicio/serviciosActivos".equals(req.getRequestURI()) ||
+
                 HttpMethod.OPTIONS.matches(req.getMethod())) {
 
             chain.doFilter(request, response);

@@ -8,14 +8,16 @@ public class Credentials {
     private String token;
     private int exp;
     private String username;
+    private Long id;
 
     public Credentials() {
     }
 
-    public Credentials(String token, int exp, String username) {
+    public Credentials(String token, int exp, String username, Long unId) {
         this.token = token;
         this.exp = exp;
         this.username = username;
+        this.id=unId;
     }
 
     public String getToken() {
@@ -41,4 +43,12 @@ public class Credentials {
     public void setUsername(String username) {
         this.username = username;
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

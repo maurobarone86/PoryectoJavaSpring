@@ -56,21 +56,14 @@ public class LoginController {
     
     @PostMapping(path = "/auth")
     public ResponseEntity<?> authenticate(@RequestBody Usuario usuario) {
-
-        if(loguinCorrecto(usuario)) {
+    	Usuario user = usuarioService.loginUser(usuario);
+        if(user != null) {
         	//System.out.println("Ingreso al login");
             String token = tokenServices.generateToken(usuario.getNombreUsuario(), EXPIRATION_IN_SEC);
-            return ResponseEntity.ok(new Credentials(token, EXPIRATION_IN_SEC, usuario.getNombreUsuario()));
+            return ResponseEntity.ok(new Credentials(token, EXPIRATION_IN_SEC, user.getNombreUsuario(), user.getId()));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuario o password incorrecto");
         }
-    }
-        
-    private boolean loguinCorrecto(Usuario usuarioIngresado) {
-    	boolean resultado = false;
-    	Usuario usuario = usuarioService.loginUser(usuarioIngresado);
-    	if (usuario != null) {resultado=true;}
-    	return resultado;
     }
 
    

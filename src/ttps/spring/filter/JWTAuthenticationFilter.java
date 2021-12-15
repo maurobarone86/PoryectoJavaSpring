@@ -30,9 +30,8 @@ public class JWTAuthenticationFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
 
-        // El login del usuarios es publico y los servicios
-        if ("/proyectoJavaSpring/auth".equals(req.getRequestURI()) || "/proyectoJavaSpring/apiServicio/serviciosActivos".equals(req.getRequestURI()) ||
-
+        // El login del usuario, el registro de un nuevo usuario y los servicios que se muestran en el home publico son de acceso sin token
+        if ("/proyectoJavaSpring/auth".equals(req.getRequestURI()) || "/proyectoJavaSpring/api/usuario".equals(req.getRequestURI()) || "/proyectoJavaSpring/apiServicio/serviciosActivos".equals(req.getRequestURI()) ||
                 HttpMethod.OPTIONS.matches(req.getMethod())) {
 
             chain.doFilter(request, response);

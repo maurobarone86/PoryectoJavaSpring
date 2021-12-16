@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ttps.spring.model.dao.UsuarioDAO;
 import ttps.spring.model.model.Servicio;
 import ttps.spring.model.model.Usuario;
+import ttps.spring.model.repository.ServicioRepository;
 import ttps.spring.model.repository.UsuarioRepository;
 
 @Service
@@ -21,6 +22,19 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	private ServicioService servicioService;
+	
+	
+
+	public ServicioService getServicioService() {
+		return servicioService;
+	}
+
+	public void setServicioService(ServicioService servicioService) {
+		this.servicioService = servicioService;
+	}
+
 	@Autowired
 	private UsuarioDAO usuarioDAOImpl;
 
@@ -79,9 +93,9 @@ public class UsuarioService {
 	public Usuario altaServicio(Long id, Servicio nuevo) {
 		if (existeUsuario(id)) {
 			Usuario user= findById(id);
-			if (user != null) {
+			if (user != null && getServicioService().nombreServicioLibre(nuevo.getNombre())) {
 				user.getServicios().add(nuevo);
-				user=guardar(user);
+				user=getUsuarioRepository().save(user);
 				return user;
 			}
 		}
@@ -114,7 +128,7 @@ public class UsuarioService {
 				if (userNuevo.getNombre() !=null) {user.setNombre(userNuevo.getNombre());}
 				if (userNuevo.getNombreUsuario() !=null) {user.setNombreUsuario(userNuevo.getNombreUsuario());}
 				if (userNuevo.getPassword() !=null) {user.setPassword(userNuevo.getPassword());}
-				user =guardar(user);
+				user =getUsuarioRepository().save(user);
 				return user;
 			}
 		}

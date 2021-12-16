@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ttps.spring.model.model.Servicio;
+import ttps.spring.model.model.Usuario;
 import ttps.spring.model.repository.ServicioRepository;
 
 @Service
@@ -36,6 +37,20 @@ public class ServicioService {
 		}
 		return null;
 
+	}
+	public Boolean nombreServicioLibre(String nuevoNombre) {
+		Boolean resultado=false;
+		try {
+			List<Servicio> listaServicios = getServicioRepository().findByNombre(nuevoNombre);
+			if (listaServicios.isEmpty()) {
+				resultado=true; 
+				}
+		}
+		catch(Exception e){
+			System.out.println("la lista de servicios devolvio algo inesperado");	
+		}
+		return resultado;
+		
 	}
 	
 	public Servicio agregar(Servicio servicio) {

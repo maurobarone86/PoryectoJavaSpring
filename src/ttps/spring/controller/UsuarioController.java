@@ -1,5 +1,7 @@
 package ttps.spring.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 //import java.util.Map;
 
@@ -61,9 +63,21 @@ public class UsuarioController extends GenericController<Usuario> {
 		if (existe(id)) {
 			Usuario usuario = usuarioService.findById(id);
 			if (usuario.getServicios()==null || usuario.getServicios().isEmpty()) {
+				
+
+				
 				return new	ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
 			}else{
-				return new ResponseEntity<List<Servicio>>(usuario.getServicios(), HttpStatus.OK);
+				List<Servicio> listaActiva = new ArrayList<Servicio>();
+				Iterator<Servicio> serv = usuario.getServicios().iterator();
+				Servicio s;
+				while(serv.hasNext()) {
+					s = serv.next();
+					if(s.getActivo()) {
+						listaActiva.add(s);
+					}
+				}
+				return new ResponseEntity<List<Servicio>>(listaActiva, HttpStatus.OK);
 			}
 		}else{
 			return new	ResponseEntity<List<Servicio>>(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);

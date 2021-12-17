@@ -128,6 +128,7 @@ public class UsuarioService {
 				if (userNuevo.getNombre() !=null) {user.setNombre(userNuevo.getNombre());}
 				if (userNuevo.getNombreUsuario() !=null) {user.setNombreUsuario(userNuevo.getNombreUsuario());}
 				if (userNuevo.getPassword() !=null) {user.setPassword(userNuevo.getPassword());}
+				if (userNuevo.getFechaNac()!=null) {user.setFechaNac(userNuevo.getFechaNac());}
 				user =getUsuarioRepository().save(user);
 				return user;
 			}
